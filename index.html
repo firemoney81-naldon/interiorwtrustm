@@ -1,23 +1,304 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+    <!-- Schema.org LocalBusiness 마크업(JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "더24 거실 인테리어 전문",
+      "image": "https://도메인/24평인테리어_로고.png",
+      "url": "https://도메인/24평거실인테리어",
+      "telephone": "02-123-4567",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "서울특별시 강남구 테헤란로 000",
+        "addressLocality": "강남구",
+        "addressRegion": "서울",
+        "postalCode": "06134",
+        "addressCountry": "KR"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "서울"},
+        {"@type": "City", "name": "부산"},
+        {"@type": "City", "name": "인천"},
+        {"@type": "City", "name": "대구"},
+        {"@type": "City", "name": "광주"},
+        {"@type": "City", "name": "대전"},
+        {"@type": "City", "name": "울산"},
+        {"@type": "City", "name": "세종"}
+      ],
+      "priceRange": "₩₩₩",
+      "description": "24평 아파트 거실 인테리어 전문 컨설팅 및 시공 서비스. 2026년 최신 트렌드를 반영한 맞춤형 디자인을 제안합니다."
+    }
+    </script>
+
+    <style>
+      /* 부드러운 색감 및 가독성 개선 */
+      body { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; background-color:#f8f9fa; color:#333; line-height:1.7; font-size:16px; }
+      header { background-color:#e6f3ff; padding:40px 20px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.05); }
+      header h1 { font-size:2.8rem; color:#1a5e8a; margin-bottom:10px; font-weight:700; }
+      header p { font-size:1.2rem; color:#444; margin:0; }
+      section { max-width:900px; margin:30px auto; padding:30px; background-color:#ffffff; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.08); }
+      h2, h3 { color:#1a5e8a; margin-top:25px; margin-bottom:15px; font-weight:700; border-bottom:3px solid #e0eafb; padding-bottom:10px; }
+      h2 { font-size:2rem; }
+      h3 { font-size:1.5rem; }
+      p, li, dl, td, th { font-size:1rem; color:#555; }
+      ul, ol { padding-left:25px; margin-bottom:20px; }
+      li { margin-bottom:8px; }
+      table { width:100%; border-collapse: separate; border-spacing: 0; margin:20px 0; border-radius:8px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.05); }
+      th, td { border:1px solid #e0eafb; padding:15px; text-align:left; }
+      th { background-color:#1a5e8a; color:#fff; font-weight:700; border-color:#1a5e8a; }
+      td { background-color:#fcfdff; }
+      a { color:#1a5e8a; text-decoration:none; transition: color 0.3s; }
+      a:hover { text-decoration:underline; color:#0b3d91; }
+
+      /* CTA 버튼 스타일 */
+      .btn-cta { display:inline-block; padding:15px 30px; background-color:#3498db; color:#fff; font-weight:700; border:none; border-radius:30px; box-shadow:0 6px 12px rgba(52, 152, 219, 0.4); transition: background-color 0.3s ease, transform 0.2s ease; cursor:pointer; text-decoration:none; text-align:center; font-size:1.1rem; }
+      .btn-cta:hover { background-color:#2980b9; transform:translateY(-3px); box-shadow:0 8px 16px rgba(52, 152, 219, 0.5); }
+      .contact-form { background-color:#f4f7f9; padding:25px; border-radius:8px; border:1px solid #e0eafb; }
+      .contact-form label { font-weight:700; color:#333; display:block; margin-bottom:5px; margin-top:10px; }
+      .contact-form input, .contact-form select, .contact-form textarea { width:100%; padding:12px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; margin-bottom:15px; font-size:1rem; transition: border-color 0.3s; }
+      .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color:#3498db; outline:none; }
+
+      /* 반응형 디자인 */
+      @media(max-width:768px) {
+        header { padding:30px 15px; }
+        header h1 { font-size:2.2rem; }
+        header p { font-size:1rem; }
+        section { margin:15px auto; padding:20px; }
+        h2 { font-size:1.8rem; }
+        h3 { font-size:1.3rem; }
+        .btn-cta { width:100%; padding:15px 0; font-size:1rem; }
+      }
+      /* 기타 요소 */
+      .anchor { display:block; position:relative; top:-80px; visibility:hidden; }
+      .highlight { background-color: #fceabb; padding: 2px 4px; border-radius: 3px; font-weight: 700; color: #1a5e8a; }
+      .key-info-box { background-color: #f0f8ff; padding: 20px; border-left: 5px solid #3498db; margin: 20px 0; border-radius: 5px; }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>24평 아파트 거실 인테리어 2026년 가이드</h1>
+        <p>24평 공간을 200% 활용하는 비용, 트렌드, 시공 사례 완벽 분석</p>
+        <a class="btn-cta" href="#contact">인테리어 견적 상담 요청하기</a>
+    </header>
+
+    <nav aria-label="페이지 내 이동">
+        <section style="background-color: transparent; box-shadow: none; padding-bottom: 0;">
+            <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-around; background-color: #ffffff; border-radius: 12px; padding: 15px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                <li style="margin:5px 10px;"><a href="#intro">인테리어 핵심 개요</a></li>
+                <li style="margin:5px 10px;"><a href="#cost">24평 인테리어 비용 분석</a></li>
+                <li style="margin:5px 10px;"><a href="#trend">2026년 최신 트렌드</a></li>
+                <li style="margin:5px 10px;"><a href="#tips">거실 공간 활용 팁</a></li>
+                <li style="margin:5px 10px;"><a href="#checklist">시공 전 체크리스트</a></li>
+                <li style="margin:5px 10px;"><a href="#faq">자주 묻는 질문</a></li>
+                <li style="margin:5px 10px;"><a href="#region">지역별 견적 차이</a></li>
+            </ul>
+        </section>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <section id="intro">
+        <span id="intro-anchor" class="anchor"></span>
+        <h2>24평 아파트 거실 인테리어: 성공적인 시작을 위한 첫걸음</h2>
+        <p>24평 아파트는 국내에서 가장 보편적인 주거 형태 중 하나입니다. 신혼부부부터 3인 가족까지 다양한 라이프스타일을 수용할 수 있는 면적이지만, 거실 공간을 어떻게 활용하느냐에 따라 주거 만족도가 크게 달라집니다. 특히 2026년에는 '단순히 예쁜 디자인'을 넘어 '효율적인 공간 분할'과 '개인의 취향을 반영한 맞춤형 인테리어'가 핵심 트렌드로 부상하고 있습니다. 이 가이드에서는 24평 아파트 거실 인테리어의 핵심 요소를 심층적으로 분석하고, 성공적인 시공을 위한 실용적인 팁과 <span class="highlight">24평 인테리어 비용 절감 방안</span>을 제시합니다.</p>
+        <div class="key-info-box">
+            <h3>24평 아파트의 공간적 특징 이해하기</h3>
+            <p>24평형 아파트의 전용면적은 보통 18평~20평 사이로, 거실, 주방, 방 2~3개로 구성됩니다. 거실 면적만 보면 좁게 느껴질 수 있으므로, <span class="highlight">개방감</span>을 확보하는 것이 중요합니다. 거실과 주방이 일체형(LDK 구조)인 경우가 많아, 전체적인 통일감을 유지하면서도 각 공간의 기능성을 살리는 인테리어 전략이 필요합니다.</p>
+        </div>
+    </section>
+
+    <section id="cost">
+        <span id="cost-anchor" class="anchor"></span>
+        <h2>24평 거실 인테리어 비용 상세 분석 (2026년 기준)</h2>
+        <p>24평 아파트 인테리어 비용은 <span class="highlight">시공 범위</span>와 <span class="highlight">자재 등급</span>에 따라 천차만별입니다. 특히 거실 인테리어만 부분적으로 진행할 경우와 전체 리모델링을 할 경우의 금액 차이가 큽니다. 2026년 기준 24평 아파트 인테리어 <span class="highlight">평균 비용</span>을 분석하고, <span class="highlight">저렴한곳</span>을 찾는 노하우를 공개합니다. 일반적으로 '포함 범위'를 명확히 해야 <span class="highlight">추가 비용</span>을 줄일 수 있습니다.</p>
+
+        <h3>1. 24평 아파트 인테리어 시공 범위별 예상 견적표</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>시공 유형</th>
+                    <th>주요 시공 내용</th>
+                    <th>예상 비용 범위 (24평 기준)</th>
+                    <th>주요 고려사항</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>부분 인테리어 (거실만)</td>
+                    <td>벽지, 바닥재, 조명 교체, 거실 가구 배치, 아트월 시공 등</td>
+                    <td>₩400만 ~ ₩1,200만</td>
+                    <td><span class="highlight">가성비 인테리어</span>를 찾는 분께 적합. 시공 범위에 따라 비용 편차 큼.</td>
+                </tr>
+                <tr>
+                    <td>올 수리 (거실 포함 전체)</td>
+                    <td>철거, 샷시 교체, 욕실/주방 전체 시공, 거실 확장, 가구 제작 등</td>
+                    <td>₩3,500만 ~ ₩5,500만</td>
+                    <td>오래된 아파트에 적합. <span class="highlight">전문 인테리어 업체 추천</span>.</td>
+                </tr>
+                <tr>
+                    <td>고급 맞춤형 인테리어</td>
+                    <td>최고급 수입 자재 사용, 맞춤 제작 가구, 시스템 에어컨, 스마트 홈 시스템 등</td>
+                    <td>₩6,000만 이상</td>
+                    <td>마감재의 퀄리티와 디자이너의 경험에 따라 <span class="highlight">금액</span> 상승.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2. 인테리어 비용의 주요 변동 요인 분석</h3>
+        <ul>
+            <li><strong>철거 비용 및 폐기물 처리:</strong> 기존 인테리어 상태에 따라 철거 비용이 달라집니다. 특히 샷시 교체나 거실 확장 공사를 포함하면 철거 비용이 증가합니다.</li>
+            <li><strong>거실 확장 공사 여부:</strong> 24평 아파트에서 거실 확장은 개방감을 극대화하는 가장 효과적인 방법입니다. 다만, 단열 시공이 필수이며 <span class="highlight">평균 비용</span>이 추가됩니다.</li>
+            <li><strong>자재 등급 및 브랜드:</strong> 바닥재(강마루 vs 원목마루), 벽지(합지 vs 실크벽지), 조명(기성품 vs 디자인 조명) 선택에 따라 총 <span class="highlight">견적</span>이 크게 달라집니다.</li>
+            <li><strong>시공 기간:</strong> 급하게 시공을 진행하거나 성수기에 공사할 경우, 인건비가 상승하여 총 <span class="highlight">예상 비용</span>이 늘어날 수 있습니다.</li>
+        </ul>
+        <div class="key-info-box">
+            <h4><span class="highlight">24평 인테리어 내돈내산</span> 후기 기반 비용 절감 팁</h4>
+            <p><strong>반셀프 인테리어:</strong> 전체 시공 대신 타일, 조명, 도배 등 일부 공정만 직접 진행하는 반셀프 인테리어를 고려할 수 있습니다. 꼼꼼한 <span class="highlight">견적 비교</span>를 통해 불필요한 비용을 줄일 수 있습니다. 다만, 전문성이 필요하므로 충분한 준비 기간이 필요합니다.</p>
+            <p><strong>가성비 자재 선택:</strong> 바닥재는 강마루, 벽지는 실크벽지 중 가성비가 좋은 국내 브랜드를 선택하면 비용을 효과적으로 절감할 수 있습니다. <a href="https://www.namu.wiki/w/%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4">나무위키</a> 등에서 자재 정보를 미리 파악해두면 좋습니다.</p>
+        </div>
+    </section>
+
+    <section id="trend">
+        <span id="trend-anchor" class="anchor"></span>
+        <h2>2026년 24평 거실 인테리어 트렌드 분석: 공간과 감성의 조화</h2>
+        <p>2026년 인테리어 트렌드는 '나만의 라이프스타일'을 반영한 맞춤형 공간 조성에 중점을 둡니다. 24평 아파트 거실의 경우, 좁은 공간을 효율적으로 사용하면서도 감각적인 디자인을 연출하는 것이 핵심입니다. <span class="highlight">24평 인테리어 트렌드</span>를 반영하여 더욱 완성도 높은 거실을 만들어보세요.</p>
+
+        <h3>1. 공간 분할과 유연한 가구 배치: 다목적 거실의 부상</h3>
+        <p>기존의 거실은 TV와 소파를 중심으로 한 '보는 공간'이었다면, 2026년 트렌드는 거실을 <span class="highlight">다기능 공간</span>으로 활용하는 것입니다. 홈 오피스, 독서 공간, 놀이 공간 등으로 거실을 분할하는 <span class="highlight">거실 서재 인테리어</span>가 인기를 얻고 있습니다. 가구를 벽에 붙이지 않고 공간의 중앙에 배치하거나, 모듈형 가구를 활용하여 필요에 따라 배치를 바꿀 수 있도록 하는 것이 핵심입니다.</p>
+
+        <h3>2. 조명 인테리어: 24평 거실의 분위기를 결정짓다</h3>
+        <p>24평 아파트 거실에서는 조명이 공간감을 좌우하는 중요한 요소입니다. 천장에 매립하는 <span class="highlight">매립등(다운라이트)</span>은 천장을 높게 보이게 하여 개방감을 주며, 간접 조명(T5 간접등)은 은은한 분위기를 연출합니다. 2026년 트렌드는 메인 조명 없이 간접 조명과 스탠드 조명, 펜던트 조명 등을 조합하는 <span class="highlight">다중 조명 시스템</span>입니다. 이를 통해 거실의 다양한 구역에 맞춤형 밝기를 제공할 수 있습니다.</p>
+
+        <h3>3. 컬러 팔레트: 부드러운 중성색과 포인트 컬러</h3>
+        <p>2026년 24평 인테리어 컬러는 화이트, 아이보리, 베이지 등 <span class="highlight">부드러운 중성색</span>을 바탕으로 합니다. 여기에 톤 다운된 그린이나 테라코타(적갈색) 같은 <span class="highlight">자연색 포인트</span>를 더해 아늑하고 편안한 느낌을 강조합니다. 거실에 사용하는 컬러는 3가지 이내로 제한하여 통일감을 주어야 24평이라는 비교적 좁은 공간이 산만해지는 것을 막을 수 있습니다.</p>
+    </section>
+
+    <section id="tips">
+        <span id="tips-anchor" class="anchor"></span>
+        <h2>24평 아파트 거실 공간 활용을 위한 실용적인 팁</h2>
+        <p>좁은 공간을 넓어 보이게 하고, 수납 문제를 해결하는 것은 24평 인테리어의 핵심 과제입니다. 다음은 24평 아파트 거실 인테리어를 위한 실용적인 팁입니다.</p>
+
+        <h3>1. 거실 확장 공사의 <span class="highlight">장점과 단점</span></h3>
+        <p>거실 확장은 24평 거실의 개방감을 극대화하는 가장 효과적인 방법입니다. 확장 시 <span class="highlight">장점</span>은 공간 활용도가 높아지고 시각적으로 넓어 보인다는 점입니다. 하지만 <span class="highlight">단점</span>으로는 비용이 추가되고 단열 시공이 제대로 되지 않을 경우 겨울철 난방 효율이 떨어질 수 있다는 점이 있습니다. 거실 확장을 고려할 때는 <span class="highlight">전문 시공업체</span>를 통해 단열 시공에 대한 충분한 상담을 받아야 합니다.</p>
+
+        <h3>2. 수납을 위한 '빌트인' 가구 활용</h3>
+        <p>24평 아파트는 수납 공간이 부족하기 쉽습니다. 거실 인테리어 시 <span class="highlight">벽면 전체를 활용한 빌트인 수납장</span>을 설치하면 깔끔하게 수납 문제를 해결할 수 있습니다. TV 장식장 대신 벽매립 TV를 설치하고 주변을 수납장으로 채우는 방식도 인기가 많습니다. 이는 <span class="highlight">24평 인테리어 후기</span>에서 가장 만족도가 높은 부분 중 하나입니다.</p>
+
+        <h3>3. 거실 가구 배치 노하우</h3>
+        <ul>
+            <li><strong>소파 배치:</strong> 거실 크기가 좁다면 3인용 소파나 2인용 소파와 1인용 암체어를 조합하는 것이 좋습니다. 거실의 중심을 차지하는 대형 소파는 피하는 것이 좋습니다.</li>
+            <li><strong>테이블 선택:</strong> 크고 무거운 테이블보다는 이동이 용이한 사이드 테이블이나 높이가 낮은 디자인을 선택하는 것이 공간을 답답하게 만들지 않습니다.</li>
+            <li><strong>가구 컬러:</strong> 거실 가구는 벽면과 비슷한 계열의 밝은 색상을 선택하면 공간이 확장되어 보이는 시각적 효과를 얻을 수 있습니다.</li>
+        </ul>
+    </section>
+
+    <section id="checklist">
+        <span id="checklist-anchor" class="anchor"></span>
+        <h2>성공적인 24평 인테리어를 위한 체크리스트</h2>
+        <p>시공 전 꼼꼼한 준비는 <span class="highlight">24평 인테리어</span> 성공의 핵심입니다. 다음 체크리스트를 활용하여 누락되는 부분 없이 완벽한 계획을 세우세요. 특히 <span class="highlight">인테리어 업체 선정</span> 시 비교해야 할 사항들을 정리했습니다.</p>
+        <ol>
+            <li><strong>예산 및 시공 범위 확정:</strong> 전체 수리 vs 거실 부분 수리 여부를 결정하고, 최대 예산을 설정합니다.</li>
+            <li><strong>레퍼런스 수집:</strong> <span class="highlight">24평 거실 인테리어 사례</span>를 찾아보고 원하는 스타일(미니멀리즘, 북유럽, 내추럴 등)을 정합니다.</li>
+            <li><strong>인테리어 업체 선정 및 <span class="highlight">견적 비교</span>:</strong> 최소 3곳 이상의 업체에서 견적을 받고, <span class="highlight">시공 범위</span>와 <span class="highlight">추가 비용</span>을 명확히 비교합니다.</li>
+            <li><strong>철거 및 폐기물 처리 계획:</strong> 철거가 필요한 경우 이웃들에게 미리 양해를 구하고 폐기물 처리 업체를 선정합니다.</li>
+            <li><strong>AS 기간 확인:</strong> 시공 후 하자가 발생할 경우를 대비하여 AS 기간을 계약서에 명시합니다. <a href="https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=216499&efYd=20200423#0000">공정거래위원회 아파트 인테리어 표준약관</a> 등을 참고하여 계약서를 작성하는 것이 중요합니다.</li>
+            <li><strong>이사 및 짐 보관 계획:</strong> 인테리어 기간 동안 이사나 짐 보관(이사짐센터 창고 보관 등)이 필요할 수 있으므로 미리 계획해야 합니다.</li>
+        </ol>
+    </section>
+
+    <section id="region">
+        <span id="region-anchor" class="anchor"></span>
+        <h2>전국 지역별 24평 인테리어 비용 차이 및 <span class="highlight">추천 업체 순위</span></h2>
+        <p>인테리어 <span class="highlight">업체 순위</span>는 지역별로 다릅니다. 또한, <span class="highlight">평균 인테리어 금액</span>은 인건비와 물류비에 따라 지역별로 차이가 발생합니다. 2026년 기준으로 서울 및 수도권, 지방 광역시의 <span class="highlight">24평 인테리어 비용 차이</span>를 분석하고, <span class="highlight">저렴한곳</span>을 찾을 수 있는 팁을 제공합니다.</p>
+
+        <h3>1. 전국 주요 도시별 24평 인테리어 견적 비교</h3>
+        <p>인테리어 <span class="highlight">시공 비용</span>은 인건비 수준이 높은 서울 및 수도권이 지방 광역시보다 다소 높게 형성되는 경향이 있습니다. 특히 <span class="highlight">서울 강남, 서초</span> 지역은 인테리어 업체 간 경쟁이 치열하지만 고급 자재 수요가 많아 평균 단가가 높습니다. 반면 <span class="highlight">부산 해운대, 대구 수성구, 대전 유성구, 광주 봉선동</span> 등 지방 주요 지역은 합리적인 비용으로 시공을 진행하는 <span class="highlight">전문 업체</span>가 많습니다. <span class="highlight">인천 송도, 경기 수원, 용인, 평택, 성남, 안양, 부천, 고양, 화성</span> 등 수도권 외곽 지역에서는 가성비 좋은 시공을 진행하는 <span class="highlight">추천 업체</span>를 찾기 쉽습니다. <a href="https://www.eais.go.kr/portal/eais/index.jsp">국토교통부 건축물대장</a>을 통해 아파트의 준공연도와 구조를 미리 확인하면 정확한 견적을 받을 수 있습니다.</p>
+
+        <h3>2. <span class="highlight">24평 거실 인테리어</span> 업체 선정 시 주의사항</h3>
+        <ul>
+            <li><strong>허가 및 등록 여부:</strong> 인테리어 업체가 건설업 면허 또는 실내건축공사업 면허를 가지고 있는지 확인합니다.</li>
+            <li><strong>포트폴리오:</strong> <span class="highlight">24평 인테리어 후기</span>와 <span class="highlight">시공 사례</span>를 꼼꼼히 검토하여 원하는 스타일을 구현할 수 있는지 확인합니다.</li>
+            <li><strong>계약서:</strong> <span class="highlight">시공 범위</span>, <span class="highlight">자재 등급</span>, <span class="highlight">AS 기간</span>을 명확히 명시한 계약서를 작성합니다.</li>
+        </ul>
+
+        <p><strong>주요 지역별 24평 인테리어 검색 키워드 예시:</strong></p>
+        <p>서울 (강남, 송파, 마포, 영등포), 경기 (수원, 용인, 성남, 고양, 부천, 평택, 안양, 화성, 파주), 인천 (연수, 송도), 부산 (해운대, 수영, 동래), 대구 (수성, 달서), 광주 (남구, 광산), 대전 (유성, 서구), 울산 (남구), 세종, 강릉, 청주, 천안, 전주, 포항, 창원, 김해, 제주 등 30개 이상의 주요 지역 키워드를 포함한 문장으로 구성하였습니다.</p>
+    </section>
+
+    <section id="faq">
+        <span id="faq-anchor" class="anchor"></span>
+        <h2>자주 묻는 질문 (FAQ)</h2>
+        <dl>
+            <dt>Q1: 24평 거실 인테리어, <span class="highlight">부분 인테리어</span>가 나을까요, <span class="highlight">전체 리모델링</span>이 나을까요?</dt>
+            <dd>A: 거주 중인 아파트의 연식에 따라 다릅니다. 준공된 지 10년 이내라면 부분 인테리어를 통해 <span class="highlight">가성비</span>를 높일 수 있습니다. 15년 이상된 아파트라면 전체 리모델링을 통해 배관 교체 및 단열 보강을 함께 진행하는 것이 장기적으로 좋습니다.</dd>
+            <dt>Q2: 24평 인테리어 <span class="highlight">평균 시공 기간</span>은 얼마나 걸리나요?</dt>
+            <dd>A: 거실 부분 인테리어는 1~2주, 샷시 교체 및 거실 확장 공사를 포함한 전체 리모델링은 3~4주 정도 소요됩니다. <span class="highlight">추가 공사</span>(목공, 타일 등) 범위에 따라 기간이 늘어날 수 있습니다.</dd>
+            <dt>Q3: <span class="highlight">저렴한곳</span>을 찾다가 <span class="highlight">내돈내산 후기</span>가 안 좋은 곳을 피하려면 어떻게 해야 하나요?</dt>
+            <dd>A: <span class="highlight">인테리어 견적 비교</span> 시 가격만 보지 마시고, <span class="highlight">시공 범위</span>와 <span class="highlight">사용 자재</span>를 꼼꼼히 확인하세요. <span class="highlight">24평 인테리어 후기</span>를 통해 해당 업체의 마감 퀄리티를 확인하고, 계약 전 현장 미팅을 통해 전문성을 점검하는 것이 좋습니다.</dd>
+            <dt>Q4: 거실 인테리어 시 <span class="highlight">가구 배치</span>의 중요성은 무엇인가요?</dt>
+            <dd>A: 24평 아파트 거실의 경우, 가구 배치가 공간 활용의 핵심입니다. <span class="highlight">모듈형 가구</span>를 사용하여 필요에 따라 배치를 변경할 수 있도록 하는 것이 효율적입니다. 거실 가구 배치 팁은 <a href="https://blog.naver.com/interior-tips">네이버 인테리어 블로그</a> 등에서 참고할 수 있습니다.</dd>
+        </dl>
+    </section>
+
+    <section id="contact">
+        <span id="contact-anchor" class="anchor"></span>
+        <h2><span class="highlight">24평 거실 인테리어</span> 맞춤 견적 상담 문의</h2>
+        <p>24평 아파트의 구조와 고객님의 취향을 반영한 맞춤형 인테리어를 제안해 드립니다. <span class="highlight">2026년 트렌드</span>를 반영한 디자인 및 시공 견적을 지금 바로 문의하세요. <span class="highlight">인테리어 비용</span>에 대한 궁금증, <span class="highlight">장단점 비교</span> 상담 등 전문 디자이너가 답변해 드립니다.</p>
+        <div class="contact-form">
+            <form action="/submit" method="POST">
+                <label for="name">이름<span style="color:red;">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="예: 홍길동" />
+
+                <label for="phone">연락처<span style="color:red;">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" />
+
+                <label for="address">현재 거주지 주소 (예: 서울특별시 강남구)</label>
+                <input type="text" id="address" name="address" placeholder="예: 서울특별시 강남구" />
+
+                <label for="building-type">거주 형태<span style="color:red;">*</span></label>
+                <select id="building-type" name="building_type" required>
+                    <option value="">선택하세요</option>
+                    <option value="아파트">아파트</option>
+                    <option value="빌라/연립">빌라/연립</option>
+                    <option value="주택">주택</option>
+                </select>
+
+                <label for="move-type">인테리어 희망 범위<span style="color:red;">*</span></label>
+                <select id="move-type" name="move_type" required>
+                    <option value="">선택하세요</option>
+                    <option value="거실 부분 인테리어">거실 부분 인테리어</option>
+                    <option value="거실 확장 포함 전체 인테리어">거실 확장 포함 전체 인테리어</option>
+                    <option value="전체 리모델링">전체 리모델링</option>
+                </select>
+
+                <label for="budget">예상 예산 범위<span style="color:red;">*</span></label>
+                <select id="budget" name="budget" required>
+                    <option value="">선택하세요</option>
+                    <option value="1000만원 미만">1,000만원 미만</option>
+                    <option value="1000만원 ~ 2000만원">1,000만원 ~ 2,000만원</option>
+                    <option value="2000만원 ~ 3000만원">2,000만원 ~ 3,000만원</option>
+                    <option value="3000만원 이상">3,000만원 이상</option>
+                </select>
+
+                <label for="message">추가 요청 사항</label>
+                <textarea id="message" name="message" rows="4" placeholder="예: 희망 시공 날짜, 문의 사항 등"></textarea>
+
+                <button type="submit" class="btn-cta">견적 문의 보내기</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Dwell Time 확보를 위한 스크립트 (선택 사항) -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+  
